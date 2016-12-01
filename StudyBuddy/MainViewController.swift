@@ -14,6 +14,7 @@ import GoogleMaps
 class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
+    var mapView = GMSMapView()
     
     var didFindMyLocation = false
 
@@ -43,7 +44,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         // Create a GMSCameraPosition that tells the map to display the
         // coordinate -33.86,151.20 at zoom level 6.
         let camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6.0)
-        let mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
+        mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
         mapView.myLocationEnabled = true
         view = mapView
         
@@ -53,6 +54,28 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         marker.title = "Sydney"
         marker.snippet = "Australia"
         marker.map = mapView
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
+        mapView.addObserver(self, forKeyPath: "myLocation", options: NSKeyValueObservingOptions.New, context: nil)
+        
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if !didFindMyLocation {
+            let myLocation: CLLocation = change![NSKeyValueChangeNewKey] as! CLLocation
+            mapView.camera = GMSCameraPosition.cameraWithTarget(myLocation.coordinate, zoom: 10.0)
+            mapView.settings.myLocationButton = true
+            
+            didFindMyLocation = true
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if status == CLAuthorizationStatus.AuthorizedWhenInUse {
+            mapView.myLocationEnabled = true
+        }
     }
     
     func SideMenuButtonTapped(sender: UIBarButtonItem) {

@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        GMSServices.provideAPIKey("AIzaSyB9CrfRcf06bYRyv0ZApiKd2me2DVvszek")
+        GMSPlacesClient.provideAPIKey("AIzaSyB9CrfRcf06bYRyv0ZApiKd2me2DVvszek")
+        
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
@@ -36,10 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = centerContainer
         window?.makeKeyAndVisible()
-        
-        GMSServices.provideAPIKey("AIzaSyB9CrfRcf06bYRyv0ZApiKd2me2DVvszek")
-        GMSPlacesClient.provideAPIKey("AIzaSyB9CrfRcf06bYRyv0ZApiKd2me2DVvszek")
-
         
         return true
     }

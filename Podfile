@@ -6,7 +6,6 @@ target 'StudyBuddy' do
   use_frameworks!
 
   # Pods for StudyBuddy
-pod 'MMDrawerController', '~> 0.5.7'
 pod 'GoogleMaps'
   pod 'GooglePlaces'
 end

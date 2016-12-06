@@ -7,14 +7,15 @@
 //
 
 import UIKit
-import MMDrawerController
 import GooglePlaces
 import GoogleMaps
 
 class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate {
     
     var locationManager = CLLocationManager()
+    
     var mapView = GMSMapView()
+    var label = UILabel()
     
     var didFindMyLocation = false
 
@@ -23,13 +24,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         // Do any additional setup after loading the view, typically from a nib.
         
         self.view.backgroundColor = UIColor.whiteColor()
-        self.title = "Study Buddy"
-        
-        let btn = UIBarButtonItem(title: "Menu", style: .Plain, target: self, action: "SideMenuButtonTapped:")
-        self.navigationItem.leftBarButtonItem = btn
-        
-        let search = UIBarButtonItem(barButtonSystemItem: .Search, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = search
+        self.title = "Main"
         
         self.navigationController?.navigationBar.barTintColor = UIColor(red:0.02, green:0.55, blue:1.00, alpha:1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -45,8 +40,12 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         // coordinate -33.86,151.20 at zoom level 6.
         let camera = GMSCameraPosition.cameraWithLatitude(-33.86, longitude: 151.20, zoom: 6.0)
         mapView = GMSMapView.mapWithFrame(CGRect.zero, camera: camera)
+        
+        let tabBarHeight = TabBarViewController().tabBar.frame.size.height
+        mapView.padding = UIEdgeInsets(top: 0, left: 0, bottom: tabBarHeight, right: 0)
+        
         mapView.myLocationEnabled = true
-        view = mapView
+        self.view = mapView
         
         // Creates a marker in the center of the map.
         let marker = GMSMarker()
@@ -65,7 +64,7 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if !didFindMyLocation {
             let myLocation: CLLocation = change![NSKeyValueChangeNewKey] as! CLLocation
-            mapView.camera = GMSCameraPosition.cameraWithTarget(myLocation.coordinate, zoom: 10.0)
+            mapView.camera = GMSCameraPosition.cameraWithTarget(myLocation.coordinate, zoom: 14.0)
             mapView.settings.myLocationButton = true
             
             didFindMyLocation = true
@@ -78,12 +77,5 @@ class MainViewController: UIViewController, GMSMapViewDelegate, CLLocationManage
         }
     }
     
-    func SideMenuButtonTapped(sender: UIBarButtonItem) {
-        var appDelegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        appDelegate.centerContainer!.toggleDrawerSide(MMDrawerSide.Left, animated: true, completion: nil)
-    }
-
-
 }
 

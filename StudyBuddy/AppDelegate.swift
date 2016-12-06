@@ -7,16 +7,13 @@
 //
 
 import UIKit
-import MMDrawerController
 import GooglePlaces
 import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
-    var centerContainer: MMDrawerController?
+    var window: UIWindow? = UIWindow(frame: UIScreen.mainScreen().bounds)
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,20 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GMSServices.provideAPIKey("AIzaSyB9CrfRcf06bYRyv0ZApiKd2me2DVvszek")
         GMSPlacesClient.provideAPIKey("AIzaSyB9CrfRcf06bYRyv0ZApiKd2me2DVvszek")
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
-        var leftSideNav = SideMenuViewController()
-        var centerNav = UINavigationController(rootViewController: MainViewController())
-        
-        centerContainer = MMDrawerController(centerViewController: centerNav, leftDrawerViewController: leftSideNav)
-        
-        
-        centerContainer!.closeDrawerGestureModeMask = MMCloseDrawerGestureMode.TapCenterView
-        
-        
-        window?.rootViewController = centerContainer
+        window?.rootViewController = UINavigationController(rootViewController: TabBarViewController())
         window?.makeKeyAndVisible()
         
         return true

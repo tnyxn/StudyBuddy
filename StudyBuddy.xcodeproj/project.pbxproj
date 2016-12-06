@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56595D5B1DEF80800040D680 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56595D5A1DEF80800040D680 /* SideMenuViewController.swift */; };
+		567460D31DF63E7700876AD7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567460D21DF63E7700876AD7 /* TabBarViewController.swift */; };
 		56949B181DEF7FB90075092E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56949B171DEF7FB90075092E /* AppDelegate.swift */; };
 		56949B1A1DEF7FB90075092E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56949B191DEF7FB90075092E /* MainViewController.swift */; };
 		56949B1F1DEF7FB90075092E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56949B1E1DEF7FB90075092E /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		2E5CF71DB31D807D7EF584EB /* Pods_StudyBuddy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StudyBuddy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DBCD126C74155C7110D13E1 /* Pods-StudyBuddy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StudyBuddy.release.xcconfig"; path = "Pods/Target Support Files/Pods-StudyBuddy/Pods-StudyBuddy.release.xcconfig"; sourceTree = "<group>"; };
-		56595D5A1DEF80800040D680 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		567460D21DF63E7700876AD7 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		56949B141DEF7FB90075092E /* StudyBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56949B171DEF7FB90075092E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56949B191DEF7FB90075092E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 			children = (
 				56949B171DEF7FB90075092E /* AppDelegate.swift */,
 				56949B191DEF7FB90075092E /* MainViewController.swift */,
-				56595D5A1DEF80800040D680 /* SideMenuViewController.swift */,
+				567460D21DF63E7700876AD7 /* TabBarViewController.swift */,
 				56949B1E1DEF7FB90075092E /* Assets.xcassets */,
 				56949B201DEF7FB90075092E /* LaunchScreen.storyboard */,
 				56949B231DEF7FB90075092E /* Info.plist */,
@@ -210,8 +210,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				56949B1A1DEF7FB90075092E /* MainViewController.swift in Sources */,
-				56595D5B1DEF80800040D680 /* SideMenuViewController.swift in Sources */,
 				56949B181DEF7FB90075092E /* AppDelegate.swift in Sources */,
+				567460D31DF63E7700876AD7 /* TabBarViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

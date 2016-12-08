@@ -8,4 +8,5 @@ target 'StudyBuddy' do
   # Pods for StudyBuddy
 pod 'GoogleMaps'
   pod 'GooglePlaces'
+pod 'SwiftyJSON', '2.4.0'
 end

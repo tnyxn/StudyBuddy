@@ -57,11 +57,11 @@ class GoogleDataProvider {
                     for rawPlace in results {
                         let place = GooglePlace(dictionary: rawPlace, acceptedTypes: types)
                         placesArray.append(place)
-//                        if let reference = place.photoReference {
-//                            self.fetchPhotoFromReference(reference) { image in
-//                                place.photo = image
-//                            }
-//                        }
+                        if let reference = place.photoReference {
+                            self.fetchPhotoFromReference(reference) { image in
+                                place.photo = image
+                            }
+                        }
                     }
                 }
             }
@@ -73,27 +73,27 @@ class GoogleDataProvider {
     }
     
     
-//    func fetchPhotoFromReference(reference: String, completion: ((UIImage?) -> Void)) -> () {
-//        if let photo = photoCache[reference] as UIImage? {
-//            completion(photo)
-//        } else {
-//            let urlString = "http://localhost:10000/maps/api/place/photo?maxwidth=200&photoreference=\(reference)"
-//            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-//            session.downloadTaskWithURL(NSURL(string: urlString)!) {url, response, error in
-//                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-//                if let url = url {
-//                    let downloadedPhoto = UIImage(data: NSData(contentsOfURL: url)!)
-//                    self.photoCache[reference] = downloadedPhoto
-//                    dispatch_async(dispatch_get_main_queue()) {
-//                        completion(downloadedPhoto)
-//                    }
-//                }
-//                else {
-//                    dispatch_async(dispatch_get_main_queue()) {
-//                        completion(nil)
-//                    }
-//                }
-//                }.resume()
-//        }
-//    }
+    func fetchPhotoFromReference(reference: String, completion: ((UIImage?) -> Void)) -> () {
+        if let photo = photoCache[reference] as UIImage? {
+            completion(photo)
+        } else {
+            let urlString = "http://localhost:10000/maps/api/place/photo?maxwidth=200&photoreference=\(reference)"
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+            session.downloadTaskWithURL(NSURL(string: urlString)!) {url, response, error in
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                if let url = url {
+                    let downloadedPhoto = UIImage(data: NSData(contentsOfURL: url)!)
+                    self.photoCache[reference] = downloadedPhoto
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completion(downloadedPhoto)
+                    }
+                }
+                else {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        completion(nil)
+                    }
+                }
+                }.resume()
+        }
+    }
 }

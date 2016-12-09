@@ -10,6 +10,7 @@
 		5649C7871DF680CC004DC13E /* GoogleDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649C7861DF680CC004DC13E /* GoogleDataProvider.swift */; };
 		5649C7891DF680E8004DC13E /* GooglePlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649C7881DF680E8004DC13E /* GooglePlace.swift */; };
 		5649C78B1DF680FC004DC13E /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649C78A1DF680FC004DC13E /* PlaceMarker.swift */; };
+		5649C7971DFA25A2004DC13E /* MarkerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5649C7961DFA25A2004DC13E /* MarkerInfoViewController.swift */; };
 		567460D31DF63E7700876AD7 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567460D21DF63E7700876AD7 /* TabBarViewController.swift */; };
 		56949B181DEF7FB90075092E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56949B171DEF7FB90075092E /* AppDelegate.swift */; };
 		56949B1A1DEF7FB90075092E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56949B191DEF7FB90075092E /* MainViewController.swift */; };
@@ -24,6 +25,7 @@
 		5649C7861DF680CC004DC13E /* GoogleDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleDataProvider.swift; sourceTree = "<group>"; };
 		5649C7881DF680E8004DC13E /* GooglePlace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlace.swift; sourceTree = "<group>"; };
 		5649C78A1DF680FC004DC13E /* PlaceMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
+		5649C7961DFA25A2004DC13E /* MarkerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoViewController.swift; sourceTree = "<group>"; };
 		567460D21DF63E7700876AD7 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		56949B141DEF7FB90075092E /* StudyBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56949B171DEF7FB90075092E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				56949B191DEF7FB90075092E /* MainViewController.swift */,
+				5649C7961DFA25A2004DC13E /* MarkerInfoViewController.swift */,
 				567460D21DF63E7700876AD7 /* TabBarViewController.swift */,
 			);
 			name = Controllers;
@@ -71,6 +74,13 @@
 				5649C78A1DF680FC004DC13E /* PlaceMarker.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		5649C7931DFA1119004DC13E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		56949B0B1DEF7FB90075092E = {
@@ -95,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				56949B171DEF7FB90075092E /* AppDelegate.swift */,
+				5649C7931DFA1119004DC13E /* View */,
 				5649C7851DF680BA004DC13E /* Model */,
 				5649C7831DF659BD004DC13E /* Controllers */,
 				56949B1E1DEF7FB90075092E /* Assets.xcassets */,
@@ -240,6 +251,7 @@
 				5649C78B1DF680FC004DC13E /* PlaceMarker.swift in Sources */,
 				56949B181DEF7FB90075092E /* AppDelegate.swift in Sources */,
 				567460D31DF63E7700876AD7 /* TabBarViewController.swift in Sources */,
+				5649C7971DFA25A2004DC13E /* MarkerInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

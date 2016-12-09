@@ -42,6 +42,7 @@ class GooglePlace {
         let json = JSON(dictionary)
         name = json["name"].stringValue
         address = json["vicinity"].stringValue
+        photoReference = json["photos"][0]["photo_reference"].string
         
         let lat = json["geometry"]["location"]["lat"].doubleValue as CLLocationDegrees
         let lng = json["geometry"]["location"]["lng"].doubleValue as CLLocationDegrees
@@ -56,7 +57,7 @@ class GooglePlace {
             }
         }
         placeType = foundType
-        print("\(json)")
+//        print("\(json)")
     }
 }
 
